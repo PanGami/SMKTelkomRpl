@@ -1,1 +1,2 @@
-#SMKTelkomRpl
+# SMKTelkomRpl 
+# Have Fun Coding!
