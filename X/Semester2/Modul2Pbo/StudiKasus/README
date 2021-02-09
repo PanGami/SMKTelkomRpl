@@ -1,0 +1,18 @@
+#Studi kasus program dengan ketentuan sebagai berikut (Enkapsulasi): 
+# Class : Kereta Api	
+# 
+# Atribut/Variabel
+#-Penumpang:double
+#-maxPenumpang : double
+#-counter:double
+#-penumpangBaru:double
+#-hargatiket:double
+#-namaPenumpang:char	
+#
+# Method
+#+ addPenumpang(penumpang : int)
+#+ getPenumpang(penumpang : int)
+#+ getAverage() : double
+#+ addPembayaran
+#+ getTotalPembayaran
+#+cetak()
