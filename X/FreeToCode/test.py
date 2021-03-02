@@ -1,3 +1,6 @@
+# SOURCE CODE BERASAL DARI DQLab.id 
+# Mempelajari Data science!
+
 import pandas as pd
 import matplotlib.pyplot as plt
 # Load dataset https://dqlab-dataset.s3-ap-southeast-1.amazonaws.com/LO4/global_air_quality_4000rows.csv
