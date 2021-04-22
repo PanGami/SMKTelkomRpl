@@ -1,0 +1,52 @@
+/* Responsive nya Tablet */
+@media all and (max-width: 1000px) {
+  .top-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .heading h2 {
+    font-size: 20px;
+  }
+  
+  .upinfo {
+    width: 50%;
+    margin-bottom: 50px;
+  }
+}
+
+/* Resposive nya Hp */
+@media all and (max-width: 670px) {
+  .header-right {
+    display: none;
+  }
+  
+  span.menu-icon {
+    display: block;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+  
+  .top-wrapper {
+    text-align: left;
+  }
+  
+  .top-wrapper h1 {
+    font-size: 24px;
+    line-height: 36px;
+  }
+  
+  .top-wrapper p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .upinfo {
+    width: 100%;
+  }
+  
+  footer {
+    text-align: center;
+  }
+}
