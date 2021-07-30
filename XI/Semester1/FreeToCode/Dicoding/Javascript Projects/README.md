@@ -1,2 +1,2 @@
 GOODLUCK!
-Dont forget about Hapi And nanoid!
+Dont forget about NPM Hapi And nanoid!
