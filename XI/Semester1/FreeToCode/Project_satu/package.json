@@ -1,0 +1,19 @@
+{
+  "name": "project_satu",
+  "version": "1.0.0",
+  "description": "Project website pribadi",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -r ./app.js"
+  },
+  "author": "Panca",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ejs": "^2.7.4",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }   
+}
