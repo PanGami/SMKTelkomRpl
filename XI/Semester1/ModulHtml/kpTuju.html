@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Control</title>
+</head>
+<body>
+    <h3>Form Control pada HTML</h3>
+    <form class="" action="index.html" method="post">
+    <table cellpadding="5">
+    <tr>
+        <td>Input Text</td>
+        <td><input type="text" name="teks" value="" placeholder="Nama Lengkap"></td>
+        <!--
+        "placeholder digunakan untuk watermark pada inputan"
+        -->
+    </tr>
+    <tr>
+        <td>Textarea</td>
+        <td><textarea name="name" rows="5" cols="30" placeholder="Alamat Lengkap"></textarea></td>
+        <!--
+        "cols" digunakan untuk menentukan jumlah karakter
+        menyamping
+        "rows" digunakan untuk menentukan jumlah baris textarea -->
+    </tr>
+    <tr>
+        <td>Input Number</td>
+        <td><input type="number" name="angka" value="" placeholder="Usia"></td>
+    </tr>
+    <tr>
+        <td>Input Password</td>
+        <td><input type="password" name="password" value="" placeholder="Password"></td>
+    </tr>
+    <tr>
+        <td>Input Date</td>
+        <td><input type="date" name="tanggal" value=""></td>
+    </tr>
+    <tr>
+        <td>Input Time</td>
+        <td><input type="time" name="jam" value=""></td>
+    </tr>
+    <tr>
+        <td>Input Range</td>
+        <td><input type="range" name="range" value=""></td>
+    </tr>
+    <tr>
+        <td>Input Radio</td>
+        <td>
+        <input type="radio" name="gender" value="L"> Pria
+        <input type="radio" name="gender" value="P"> Wanita
+    </td>
+    </tr>
+    <tr>
+        <td>Checkbox</td>
+        <td>
+            <input type="checkbox" name="hobi[]" value="sepak bola"> Sepak Bola
+            <input type="checkbox" name="hobi[]" value="basket"> Basket
+            <input type="checkbox" name="hobi[]" value="voli">
+            Bola Voli
+        </td>
+    </tr>
+    <tr>
+        <td>Combo Box</td>
+        <td>
+        <select name="jurusan">
+        <option value="">--Pilih Jurusan--</option>
+        <option value="RPL">Rekayasa Perangkat Lunak</option>
+        <option value="TKJ">Teknik Komputer dan Jaringan</option>
+        </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Input File</td>
+        <td><input type="file" name="file" value=""></td>
+    </tr>
+    <tr>
+        <td>Input Color</td>
+        <td><input type="color" name="warna" value=""></td>
+    </tr>
+    <tr>
+        <td>Tombol</td>
+        <td>
+        <button type="button" name="button">Tombol Biasa</button>
+        <button type="submit" name="button">Tombol Submit Data</button>
+        <!-- "submit" digunakan untuk mengumpulkan data yang ada pada form -->
+        <button type="reset" name="button">Tombol Reset</button>
+        <!-- "reset" digunakan untuk mereset inputan yang sudah terisi -->
+    </td>
+    </tr>
+    </table>
+    </form>
+</body>
+</html>
