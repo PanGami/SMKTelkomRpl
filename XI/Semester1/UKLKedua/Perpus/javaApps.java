@@ -8,7 +8,8 @@ public class javaApps {
         Peminjaman peminjaman = new Peminjaman();
         Siswa siswa = new Siswa();
         Laporan laporan = new Laporan();
-    
+        // subclass pesan = new subclass(); Untuk menampilkan pesan 
+        
         laporan.laporan(buku);
         laporan.laporan(siswa);
         laporan.laporan(peminjaman,buku);
