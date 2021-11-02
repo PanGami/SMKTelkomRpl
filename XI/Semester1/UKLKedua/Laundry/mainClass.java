@@ -7,7 +7,8 @@ public class mainClass {
         JenisLaundry jenislaundry = new JenisLaundry();
         Client client = new Client();
         //Petugas petugas = new Petugas();
-        
+        // subclass pesan = new subclass(); Untuk menampilkan pesan 
+
         //Jika ingin input Jenis Laundry Baru
         //argument diisi petugas, index petugas, kode petugas
         //jenislaundry.setAllLaundry(petugas,0,12345); 
