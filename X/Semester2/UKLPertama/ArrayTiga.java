@@ -16,8 +16,8 @@ public class ArrayTiga {
         }
         
         for(int i=0;i<2;i++){
-            for(int j=0;j<1;j++){
-                System.out.print(hasil[i][i]+"\t");
+            for(int j=0;j<2;j++){
+                System.out.print(hasil[i][j]+"\t");
             }            
             System.out.println("");
         }    
