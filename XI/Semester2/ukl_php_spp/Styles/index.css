@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body
+{
+  text-align:center;
+}
+
+.BoardName
+{
+  color: white;
+    text-shadow: 1px 2px 3px black;
+    font-size: 35px;
+    transform-style: preserve-3d;
+    margin-left: 200px;
+}
+
+.main
+{
+  height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 1;
+}
+
+/*****end****/
+
+
+
+#wrapper {
+    top: 0;
+    left: 80px;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+}
+
+.content-holder {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-wrap, .fs-slider-wrap {
+    background: #292929;
+    z-index: 25;
+}
+
+.full-height
+{
+      height: 100%;
+}
+
+.fl-wrap {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+
+.impulse-wrap {
+    background: #212529;
+    width: 100%;
+    height: 100%;
+
+}
+
+.impulse-wrap:before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.mm-parallax {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+    z-index: 20;
+    transform-style: preserve-3d;
+}
+
+
+.impulse-wrap .bg, .impulse-wrap .overlay {
+    box-shadow: 0 20px 25px 0 rgba(18,17,30,.35);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.4;
+    z-index: 3;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: center;
+    background-repeat: repeat;
+    background-origin: content-box;
+}
+
+
+
+
+.hero-corner {
+    top: 50px;
+    right: 50px;
+    z-index: 21;
+    border-top: 1px solid;
+    border-right: 1px solid;
+}
+
+.hero-corner2 {
+    top: 50px;
+    left: 50px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+}
+
+.hero-corner3 {
+    bottom: 50px;
+    right: 50px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+}
+
+.hero-corner4 {
+bottom: 50px;
+    left: 50px;
+    z-index: 21;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+}
+
+
+
+.hero-corner, .hero-corner2, .hero-corner3, .hero-corner4 {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    z-index: 21;
+    border-color: rgba(255,255,255,0.3);
+}
+
+
+.fl-wrap {
+    float: left;
+    width: 100%;
+    position: relative;
+  transform: translateZ(80px)
+}
+
+.hero-wrap-item {
+    top: 45%;
+}
+
+.navbar-toggler{
+    background-color: #fff !important;
+    border: 2px solid !important;
+}
+.navbar-light .navbar-toggler {
+    border-color: rgba(255,255,255,0.3);
+}
+.navbar-collapse collapse in{
+    display: block !important;
+}
+.collapse:not(.show) {
+    display:block !important;
+}
+.collapse{
+    display:block !important;
+}

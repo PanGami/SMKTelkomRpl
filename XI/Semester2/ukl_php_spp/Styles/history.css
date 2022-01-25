@@ -1,0 +1,67 @@
+/* Amburadul css by panca */
+.all-table{
+    background-color: #212529 !important;
+}
+.all-table h3{
+    /* make text h3 centered */
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #7e7e7e;; 
+    /* make text capital css    */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px !important;
+}
+.all-table a{
+    color: #fff !important;
+    text-decoration: none;
+    /* make text capital css    */
+    text-transform: uppercase;    
+}
+.all-table a:hover{
+    color: #FF5E14 !important;
+    text-decoration: none;
+}
+.all-table button{
+    /* make the button at the right */
+    font-size: 10px;
+    color: #fff;
+    border-color: #7e7e7e;;
+    text-transform: uppercase;
+    margin-left: 15px;
+    height: 26px;
+    margin-top: -2px;
+}
+.formnya-history{
+    /* make it at center */
+    padding: 40px 0 !important;
+    max-width: 98% !important;
+    border: #212529 !important;
+    text-align: center;
+    padding-bottom: 71px !important;
+}
+.all-table button:hover{
+    color: #FF5E14;
+    border-color: #FF5E14;
+    background-color:#212529 !important;
+}
+.table{
+    /* make table centered */
+    margin: 0 auto;
+    max-width: 98% !important;
+    border: #212529 !important;
+    margin-bottom: 0 !important;        
+}
+.all-table td{
+    color: #fff;
+    margin-left: 10px !important;
+}
+.history-biodata{
+    margin-left: 10px !important;
+}
+#tested{
+    margin-bottom: 10px !important;
+}

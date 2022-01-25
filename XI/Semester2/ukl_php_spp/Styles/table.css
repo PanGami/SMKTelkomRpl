@@ -1,0 +1,68 @@
+/* Amburadul css by panca */
+body{
+    background-color: #212529 !important;
+}
+.all-table{
+    background-color: #212529 !important;
+}
+.all-table h3{
+    /* make text h3 centered */
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #7e7e7e;; 
+    /* make text capital css    */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding-top: 20px;
+}
+.all-table a{
+    color: #fff !important;
+    text-decoration: none;
+    /* make text capital css    */
+    text-transform: uppercase;    
+}
+.all-table a:hover{
+    color: #FF5E14 !important;
+    text-decoration: none;
+}
+.all-table button{
+    /* make the button at the right */
+    color: #fff;
+    border-color: #7e7e7e;;
+    margin-left: 15px;
+}
+
+.all-table button:hover{
+    color: #FF5E14;
+    border-color: #FF5E14;
+    background-color:#212529 !important;
+}
+.table-number{
+    /* make it centered */
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 20px;
+}
+.table{
+    /* make table centered */
+    margin: 0 auto;
+    max-width: 98% !important;
+    border: #212529 !important;
+}
+.custom-select{
+    border: 1px solid #ced4da !important;
+    height: 30px !important;
+    border-radius: .25rem !important;
+    width: 28.5% !important;
+}
+.form-control{
+    width: 28.5% !important;
+}
+.test{
+    margin-top:10px;     
+}
+.id-hide{
+    display: none;
+}
