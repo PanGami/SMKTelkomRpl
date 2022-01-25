@@ -34,8 +34,8 @@ if(isset($_SESSION['nisn'])){
             <td>No. </td>
             <td>Nama Petugas</td>
             <td>Nama Siswa</td>
-            <td>Tgl/Bulan/Tahun dibayar</td>
-            <td>Tahun / Nominal harus dibayar</td>
+            <td>Terakhir Membayar</td>
+            <td>Bulan Tahun / Nominal harus dibayar</td>
             <td>Jumlah yang dibayar</td>
             <td>Status</td>
         </tr>
@@ -59,8 +59,8 @@ if(isset($_SESSION['nisn'])){
                 <td><?= $no ?></td>
                 <td><?= $r['nama_petugas']; ?></td>
                 <td><?= $r['nama']; ?></td>
-                <td><?= $r['tgl_bayar'] . "/" . $r['bulan_dibayar'] . "/" . $r['tahun_dibayar']; ?></td>
-                <td><?= $r['tahun'] . " | Rp. " . $r['nominal']; ?></td>
+                <td><?= $r['tgl_bayar']?></td>
+                <td><?= $r['bulan_dibayar'] . " - " . $r['tahun'] . " | Rp. " . $r['nominal']; ?></td>
                 <td><?= $r['jumlah_bayar']; ?></td>
                 <td>
     <?php
