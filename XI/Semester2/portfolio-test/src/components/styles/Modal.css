@@ -1,0 +1,42 @@
+.modal {
+    display: grid;
+    position: fixed;
+    place-content: center;
+    background: hsl(var(--clr-glass-dark));
+    backdrop-filter: blur(1rem);
+    inset: 20%;
+    gap: 1rem;  
+    padding: 1rem;
+}
+
+
+.cart {
+    padding: 1.8rem;
+    background: hsl(var(--clr-glass-blank));
+    cursor: pointer;
+}
+.cart a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--clr-white);
+    font-size: clamp(.1rem,.5vw + .5rem,3rem);
+}
+.cart:hover {
+    transform: scale(102%);
+    transition: 250ms;
+}
+
+@media (min-width:50rem) {
+    .modal {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    }
+}
+.close-modal {
+    position: absolute;
+    cursor: pointer;
+    color: var(--clr-white);
+}
+.close-modal .cm {
+    font-size: 15px;
+}

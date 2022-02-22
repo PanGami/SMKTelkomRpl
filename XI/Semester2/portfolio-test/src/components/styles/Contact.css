@@ -1,0 +1,36 @@
+.contact{
+    width: 100%;
+    height: 100vh;
+    background: var(--clr-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.contact h1 {
+    color: hsl(var(--clr-glass));
+}
+.contact input {
+    width: 40%;
+    padding: 15px;
+    margin-block: .3rem;
+    border: none;
+    outline: none;
+    background: hsl(var(--clr-glass-dark));
+    color: var(--clr-white);
+}
+.contact .input-message {
+    padding-bottom: 4rem;
+}
+.contact input::placeholder {
+    color: var(--clr-white);
+}
+
+.contact a {
+    background: hsl(var(--clr-glass));
+    color: var(--clr-white);
+    text-decoration: none;
+    padding: .4em;
+    margin-block: 1rem;
+    text-transform: uppercase;
+}
