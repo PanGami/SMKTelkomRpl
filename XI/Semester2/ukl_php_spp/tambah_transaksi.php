@@ -58,7 +58,7 @@ while($r = mysqli_fetch_assoc($spp)){ ?>
 <?php } ?>          </select></td>
             </tr>
             <tr>
-                <td>Jumlah bayar</td>
+                <td>Jumlah bayar Awal</td>
                 <td><input class="form-control" type="text" name="jumlah" placeholder="1000000"></tdd>
             </tr>
         </table>

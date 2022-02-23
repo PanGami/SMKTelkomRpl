@@ -65,9 +65,9 @@ ORDER BY tgl_bayar");
         <tr>
             <td>No. </td>
             <td>Dibayarkan kepada</td>
-            <td>Tgl. Pembayaran</td>
-            <td>Tahun | Nominal yang harus dibayar</td>
-            <td>Jumlah yang dibayarkan</td>
+            <td>Terakhir Membayar</td>
+            <td>Bulan Tahun / Nominal harus dibayar</td>
+            <td>Jumlah yang dibayar</td>
             <td>Status</td>
         </tr>
 <?php
@@ -75,10 +75,10 @@ $no = 1;
 while($r = mysqli_fetch_assoc($pembayaran)){ ?>
         <tr>
             <td><?= $no; ?></td>
-            <td><?= $r['nama_petugas']; ?></td>
-            <td><?= $r['tgl_bayar'] . "/" . $r['bulan_dibayar'] . "/" . $r['tahun_dibayar']; ?></td>
-            <td><?= $r['tahun'] . " | Rp. " . $r['nominal']; ?></td>
-            <td><?= $r['jumlah_bayar']; ?></td>
+                <td><?= $r['nama_petugas']; ?></td>            
+                <td><?= $r['tgl_bayar']?></td>
+                <td><?= $r['bulan_dibayar'] . " - " . $r['tahun'] . " | Rp. " . $r['nominal']; ?></td>
+                <td><?= $r['jumlah_bayar']; ?></td>
             <td>
 <?php
 // Jika jumlah bayar sesuai dengan yang harus dibayar maka Status LUNAS

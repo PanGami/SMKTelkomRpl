@@ -52,14 +52,14 @@ require_once("require.php");
                 <td><input class="form-control" type="tel" name="no_telp"></td>
             </tr>
             <tr>
-                <td>ID SPP :</td>
+                <td>ID TAHUN SPP :</td>
                 <td>
                 <div class="select">
                     <select class="custom-select" id="inlineFormCustomSelectPref" name="id_spp">
                         <?php
                         $spp = mysqli_query($db, "SELECT * FROM spp");                        
                         while($r = mysqli_fetch_assoc($spp)){ ?>                            
-                            <option value="<?= $r['id_spp']; ?>"><?= $r['id_spp']?></option>
+                            <option value="<?= $r['id_spp'] . " - " . $r['tahun']; ?>"><?= $r['id_spp'] . " - " . $r['tahun'];?></option>
                         <?php } ?>
                     </select>
                 </div>

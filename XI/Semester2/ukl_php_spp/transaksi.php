@@ -94,7 +94,7 @@ if(isset($_GET['lunas'])){
         ?>
         <script>
             alert("Data berhasil disimpan");            
-            document.location.href="transaksi.php";
+            document.location.href="tr5ansaksi.php";
         </script>
         <?php
     }
