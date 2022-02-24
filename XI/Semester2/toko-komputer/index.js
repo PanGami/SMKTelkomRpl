@@ -18,6 +18,10 @@ app.use("/customer", customer)
 const product = require('./routes/product');
 app.use("/product", product)
 
+//endpoint transaksi
+const transaksi = require('./routes/transaksi');
+app.use("/transaksi", transaksi)
+
 //run server
 app.listen(8080, () => {
     console.log('server run on port 8080')
