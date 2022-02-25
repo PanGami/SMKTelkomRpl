@@ -26,23 +26,31 @@ app.get("/", async (req, res) =>{
     res.json(result)
 })
 
-
+// Ditambahi try catch 
 app.get("/:customer_id", async (req, res) =>{
-    let param = { customer_id: req.params.customer_id}
-    let result = await transaksi.findAll({
-        where: param,
-        include: [
-            "customer",
-            {
-                model: models.detail_transaksi,
-                as : "detail_transaksi",
-                include: ["product"]
-            }
-        ]
-    })
-    res.json(result)
+    try{
+        let param = { customer_id: req.params.customer_id}
+        let result = await transaksi.findAll({
+            where: param,
+            include: [
+                "customer",
+                {
+                    model: models.detail_transaksi,
+                    as : "detail_transaksi",
+                    include: ["product"]
+                }
+            ]
+        })
+        res.json(result)
+    }catch(error) {
+        res.json({
+            message: error
+        })
+    }
 })
 
+
+// Data masuk ke database namun muncul error forEach undefined
 app.post("/", async (req, res) =>{
     let current = new Date().toISOString().split('T')[0]
     let data = {
@@ -74,6 +82,7 @@ app.post("/", async (req, res) =>{
     })
 })
 
+//Tidak ada error
 app.delete("/:transaksi_id", async (req, res) =>{
     let param = { transaksi_id: req.params.transaksi_id}
     try {
