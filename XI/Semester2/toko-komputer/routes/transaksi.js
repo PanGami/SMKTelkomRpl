@@ -12,18 +12,26 @@ const detail_transaksi = models.detail_transaksi
 const auth = require("../auth")
 app.use(auth)
 
+// ====> Fix setelah menambah field price pada detail_transaksi
+// Ditambahi try catch 
 app.get("/", async (req, res) =>{
-    let result = await transaksi.findAll({
-        include: [
-            "customer",
-            {
-                model: models.detail_transaksi,
-                as : "detail_transaksi",
-                include: ["product"]
-            }
-        ]
-    })
-    res.json(result)
+    try{
+        let result = await transaksi.findAll({
+            include: [
+                "customer",
+                {
+                    model: models.detail_transaksi,
+                    as : "detail_transaksi",
+                    include: ["product"]
+                }
+            ]
+        })
+        res.json(result)
+    }catch(error) {
+        res.json({
+            message: error
+        })
+    }
 })
 
 // Ditambahi try catch 
