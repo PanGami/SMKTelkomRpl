@@ -17,11 +17,14 @@ function App() {
       element.querySelector(".first-paragraph"),
       {
         opacity: 0,
-        y: -20
+        duration: 1,
+        y: 0
       },
       {
         opacity: 1,
-        y: 0,
+        duration: 1,
+        y: 10,
+        ease: "none",
         scrollTrigger: {
           trigger: element.querySelector(".first"),
           start: "top top",
@@ -37,16 +40,16 @@ function App() {
     gsap.fromTo(
       element.querySelector("#gsap-logo"),
       {
-        opacity: 0,
-        scale: 0.2,
+        opacity: -1,
+        scale: 0,
         y: -20
       },
       {
         opacity: 1,
-        y: 0,
+        y: 20,
         scale: 1,
         duration: 1,
-        ease: "none",
+        ease: "power2.inOut",
         scrollTrigger: {
           trigger: element.querySelector(".first"),
           start: "top center",
