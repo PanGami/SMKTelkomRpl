@@ -1,19 +1,22 @@
 
 body{
   margin: 0 !important;
-  transition: 1s;
+  
 }
 .text{
+  transition: 0.5s;
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   color: #fff;
   text-align: center;
-  border-bottom: none
+  margin-top: 0;
+  padding: 3vh;
+  border: #fff solid 2px;
 }
 .text:hover{
   color: #61DAFB;
-  text-transform: lowercase;
+  border: #61DAFB solid 2px;
 }
 .App {
   text-align: center;
@@ -46,7 +49,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 20vh;
+  padding-top: 1vh;
 }
 
 @keyframes App-logo-spin {

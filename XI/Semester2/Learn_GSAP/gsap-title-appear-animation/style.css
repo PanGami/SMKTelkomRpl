@@ -1,0 +1,32 @@
+body{
+  background-color:#9c2a2a;
+}
+.contact-cont{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%)
+}
+.contact{
+  font-size:100px;
+  font-family:ubuntu;
+  color:white;
+  margin:0;
+}
+.contact span {
+   opacity: 0;
+   display: inline;
+   transition: opacity 0.1s; 
+   position: relative;
+
+}
+.line{
+  width:2px;
+  border-radius: 1px;
+  height:100%;
+  left: 0;
+  top:0;
+  background: #fff;
+  position: absolute;
+  transform:scale(0);
+}
