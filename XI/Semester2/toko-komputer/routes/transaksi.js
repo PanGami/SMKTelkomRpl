@@ -59,6 +59,8 @@ app.get("/:customer_id", async (req, res) =>{
 
 
 // Data masuk ke database namun muncul error forEach undefined
+// + { individualHooks: true }
+// + comment search bug
 app.post("/", async (req, res) =>{
     let current = new Date().toISOString().split('T')[0]
     let data = {
@@ -72,8 +74,13 @@ app.post("/", async (req, res) =>{
         detail.forEach(element => {
             element.transaksi_id = lastID
         });
+        // let test = detail.forEach(element => {
+        //     element.transaksi_id = lastID
+        // });
+        // console.log(test + " Test disini!");
+        // console.log(lastID + " " + transaksi_id)
         console.log(detail);
-        detail_transaksi.bulkCreate(detail)
+        detail_transaksi.bulkCreate(detail, { individualHooks: true })
         .then(result => {
             res.json({
                 message: "Data has been inserted"
@@ -85,7 +92,7 @@ app.post("/", async (req, res) =>{
             })
         })
     })
-    .catch(error => {
+    .catch(error => {        
         console.log(error.message);
     })
 })
