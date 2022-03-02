@@ -62,72 +62,50 @@ app.get("/:customer_id", async (req, res) => {
 // + { individualHooks: true }
 // + comment search bug
 app.post("/", async (req, res) => {
-  let current = new Date().toISOString().split("T")[0];
-  let data = {
-    customer_id: req.body.customer_id,
-    waktu: current,
-  };
-  transaksi
-    .create(data)
-    .then((result) => {
-      let lastID = result.transaksi_id;
-      detail = req.body.detail_transaksi;
-      detail.forEach((element) => {
-        element.transaksi_id = lastID;
-      });
-      // let test = detail.forEach(element => {
-      //     element.transaksi_id = lastID
-      // });
-      // console.log(test + " Test disini!");
-      // console.log(lastID + " " + transaksi_id)
-      console.log(detail + "HAI AKU DETAIL");
-      // console.log(detail[0].qty + "HAI AKU TEST ISI DETAIL");
+  
+    let current = new Date().toISOString().split("T")[0];
+    let data = {
+      customer_id: req.body.customer_id,
+      waktu: current,
+    };
 
-
-      // UPDATE STOCK PRODUCT
-      let idProduct = { product_id: detail[0].product_id };
-    product
-      .findOne({where: idProduct})
-      .then(result => {
-        let currStock = result.stock;
-        let newStock = { stock: currStock - detail[0].qty };
-        product.update(newStock, { where: idProduct });
-        // console.log("TESTTTTT => " + result + "<= result | " + currStock + " <stock | qty> " + detail[0].qty);
-      })
-      .catch(error => {
-        res.json({
-          message: error.message,
-        });
-      });
-      
-      // console.log(product + "Hai Aku product Model")
-      // product
-      //   .findOne({ where: { product_id: detail[0].product_id } })
-      //   .then((result) => {
-      //     res.json({
-      //       message: product.stock,
-      //       message: result.stock,
-      //       product: result,
-      //     });
-      //   })
-      //   .catch((error) => {
-      //     res.json({
-      //       message: error.message,
-      //     });
-      //   });
-      detail_transaksi
-        .bulkCreate(detail, { individualHooks: true })
-        .then((result) => {
-          res.json({
-            message: "Data has been inserted",
+    transaksi
+      .create(data)
+      .then((result) => {
+          let lastID = result.transaksi_id;
+          detail = req.body.detail_transaksi;
+          detail.forEach((element) => {
+            element.transaksi_id = lastID;
           });
+        // UPDATE STOCK PRODUCT
+        for(let i = 0; i < detail.length; i++){          
+          let idProduct = { product_id: detail[i].product_id };        
+          product
+            .findOne({where: idProduct})
+            .then(result => {
+              let currStock = result.stock;
+              let newStock = { stock: currStock - detail[i].qty };
+              product.update(newStock, { where: idProduct });
+            })
+            .catch(error => {
+              res.json({
+                message: error.message,
+              });
+            });
+        }
+          detail_transaksi
+            .bulkCreate(detail, { individualHooks: true })
+            .then((result) => {
+              res.json({
+                message: "Data has been inserted",
+              });
+            })
+            .catch((error) => {
+              res.json({
+                message: error.message,
+              });
+            });
         })
-        .catch((error) => {
-          res.json({
-            message: error.message,
-          });
-        });
-    })
     .catch((error) => {
       console.log(error.message);
     });
