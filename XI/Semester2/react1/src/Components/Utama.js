@@ -6,6 +6,7 @@ import Nol from '../App0';
 import Satu from '../App'
 import Dua from '../App2';
 import List from './List'
+import ListGallery from './ListGallery';
 export default class Utama extends React.Component {
     render() {
       return (
@@ -14,6 +15,7 @@ export default class Utama extends React.Component {
             <Route path='/Belakang' element={<Nol/>}/>
             <Route path='/Depan' element={<Dua/>}/>        
             <Route path='/List' element={<List/>}/>
+            <Route path='/Gallery' element={<ListGallery/>}/>
         </Routes>
         )
     }

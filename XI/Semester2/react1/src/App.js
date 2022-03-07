@@ -5,6 +5,7 @@ import foto from './image/sat.jpg';
 import { Link } from 'react-router-dom';
 import Utama from './Components/Utama';
 import SosialIcon from './Components/socialicons/index'
+import Gallery from './Components/ListGallery.js';
 
 class App extends Component {
   render(){
@@ -19,6 +20,7 @@ class App extends Component {
             <Link className="btn btn-success" to="/Belakang">Test Router</Link>          
             <Link className="btn btn-info" to="/Depan">Test Router</Link>     
           </div>       
+          <Gallery/>
           <a href="#"><i class="arrow fas fa-gem me-3"></i></a>
           <p><Utama/></p>
             <div className='test'>

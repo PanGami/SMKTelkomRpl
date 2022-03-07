@@ -1,5 +1,6 @@
 import React, {Component} from 'react';    
 import './style.css';
+import { Link } from 'react-router-dom';
 
 class App0 extends Component {  
   render(){  
@@ -10,7 +11,7 @@ class App0 extends Component {
           <p>Belajar React JS itu mudah</p>  
           <button className="mr-1 btn btn-success">Setuju</button>  
           <button className="btn btn-info">Iya Dong</button>  
-          <a href="List"><button className="mr-1 btn btn-success">Menuju List</button></a>
+          <Link to="/List" className="mr-1 btn btn-success">Menuju List</Link>
         </div>  
       </div>  
     );  

@@ -73,7 +73,11 @@ h4{
   animation-iteration-count: infinite;
   animation-name: arrow; 
 }
-
+.gallery{
+  border: #282c34 solid 1px;
+  padding-bottom: 10px !important;
+  margin-bottom: 20px !important;
+}
 @keyframes arrow {
   0% {
     opacity: 1; }
