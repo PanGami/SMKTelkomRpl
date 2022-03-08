@@ -20,9 +20,9 @@ class App extends Component {
             <Link className="btn btn-success" to="/Belakang">Test Router</Link>          
             <Link className="btn btn-info" to="/Depan">Test Router</Link>     
           </div>       
-          <Gallery/>
-          <a href="#"><i class="arrow fas fa-gem me-3"></i></a>
           <p><Utama/></p>
+          <Gallery/>
+          <a href="#"><i class="arrow fas fa-gem me-3"></i></a>          
             <div className='test'>
               <Media image="Michael.png" title="React Test">  
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus  

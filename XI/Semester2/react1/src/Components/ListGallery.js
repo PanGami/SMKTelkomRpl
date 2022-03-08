@@ -101,6 +101,15 @@ class ListGallery extends Component {
           cover:
             "https://drive.google.com/uc?id=1e-thvq7lkG1_gw0FqHzRoiAhfhdgpOUj",
         },
+        {
+            isbn: "12345",
+            judul: "Bulan",
+            penulis: "Tere Liye",
+            penerbit: "CV Harapan Kita",
+            harga: 95000,
+            cover:
+              "https://drive.google.com/uc?id=1ui-jyKgu3DqFyo7VKJu-FFXkaNQN3aSg",
+          },
       ],
       action: "",
       isbn: "",
