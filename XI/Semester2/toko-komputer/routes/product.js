@@ -14,6 +14,7 @@ const fs = require("fs");
 //import model
 const models = require("../models/index");
 const product = models.product;
+const detail_transaksi = models.detail_transaksi;
 
 //config storage image
 const storage = multer.diskStorage({
@@ -128,32 +129,35 @@ app.put("/:id", upload.single("image"), (req, res) => {
     });
 });
 
-app.delete("/:id", async (req, res) => {
+app.delete("/:id",async (req, res) => {
   try {
     let param = { product_id: req.params.id };
-    let result = await product.findOne({ where: param });
-    let oldFileName = result.image;
+    let selectedProduct = await product.findOne({ where: param });
+    let oldFileName = selectedProduct.image;
 
+    // console.log(selectedProduct + " <> " + oldFileName + "<>" + product.findOne({ where: param }));
     // delete old file
     let dir = path.join(__dirname, "../image/product", oldFileName);
     fs.unlink(dir, (err) => console.log(err));
 
     // delete data
-    product
+    await detail_transaksi.destroy({ where: param });
+    product    
       .destroy({ where: param })
       .then((result) => {
-        res.json({
-          message: "data has been deleted",
+        res.json({          
+          message: result + " data has been deleted ",
         });
       })
       .catch((error) => {
         res.json({
-          message: error.message,
+           message: error.message,
+         
         });
       });
   } catch (error) {
     res.json({
-      message: error.message,
+       message: error.message,
     });
   }
 });
