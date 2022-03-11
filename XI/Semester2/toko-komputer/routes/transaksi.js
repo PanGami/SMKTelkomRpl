@@ -84,8 +84,8 @@ app.post("/", async (req, res) => {
             .findOne({where: idProduct})
             .then(result => {
               let currStock = result.stock;
-              let newStock = { stock: currStock - detail[i].qty };
-              product.update(newStock, { where: idProduct });
+              let newStock = { stock: currStock - detail[i].qty }
+              product.update(newStock, { where: idProduct })
             })
             .catch(error => {
               res.json({

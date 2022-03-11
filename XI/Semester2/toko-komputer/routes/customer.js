@@ -167,43 +167,11 @@ app.delete("/:id", async (req, res) => {
   try {
     let param = { customer_id: req.params.id };
     let result = await customer.findOne({ where: param });
-    let result2 = await transaksi.findAll({ where:param });
-    
-    //console.log result2 
-    // console.log(result2.length + " HAIIIIIIIII");
-    // console.log(result2);
-    // console.log(result2[0] + "AAAAAAAAA");
-    // console.log(result2.dataValues.transaksi_id);
     let oldFileName = result.image;
-   
+
     // delete old file
     let dir = path.join(__dirname, "../image/customer", oldFileName);
     fs.unlink(dir, (err) => console.log(err));
-
-    // delete data
-    // await detail_transaksi.destroy({ where: param });
-
-    //       === sejauh dalam pikiran untuk fix ===
-    // Karena 1 customer memiliki banyak transaksi maka 
-    // - data transaksi lebih dari 1 
-    // - Maka dari itu acuan dari transaksi pun akan banyak <-- masalah
-    // - transaksi mengambil customer_id (tabel customer)
-    // - detail_transaksi mengambil transaksi_id (tabel transaksi) 
-    // - untuk selanjutnya kurang tahu
-
-    // >>> CARA YANG TERPIKIRKAN UNTUK MENGHAPUS DETAIL_TRANSAKSI <<<
-    //           ============= 1 ==========
-    // menggunakan variable untuk menyimpan semua transaksi
-    // berdasarkan customer_id, dari semua transaksi  
-    // diambil semua transaksi_id lalu menghapus 
-    // semua berdasarkan transaksi_id tersebut
-
-    //           ============= 2 ==========
-    // menggunakan models transaksi lalu didalamnya 
-    // terdapat models detail_transaksi
-    // menggunakan result untuk mengambil semua data
-
-    await transaksi.destroy({ where: param });
 
     customer
       .destroy({ where: param })
@@ -225,3 +193,45 @@ app.delete("/:id", async (req, res) => {
 });
 
 module.exports = app;
+
+// delete data
+// await detail_transaksi.destroy({ where: param });
+// Tidak bisa karena detail_transaksi tidak memiliki customer_id
+
+//       === sejauh dalam pikiran untuk fix ===
+// Karena 1 customer memiliki banyak transaksi maka
+// - data transaksi lebih dari 1
+// - Maka dari itu acuan dari transaksi pun akan banyak <-- masalah
+// - transaksi mengambil customer_id (tabel customer)
+// - detail_transaksi mengambil transaksi_id (tabel transaksi)
+// - untuk selanjutnya kurang tahu
+
+// >>> CARA YANG TERPIKIRKAN UNTUK MENGHAPUS DETAIL_TRANSAKSI <<<
+//           ============= 1 ==========
+// menggunakan variable untuk menyimpan semua transaksi
+// berdasarkan customer_id, dari semua transaksi
+// diambil semua transaksi_id lalu menghapus
+// semua berdasarkan transaksi_id tersebut
+
+//           ============= 2 ==========
+// menggunakan models transaksi lalu didalamnya
+// terdapat models detail_transaksi
+// menggunakan result untuk mengambil semua data
+
+//           ============= 3 ==========
+// menambahkan attribute customer_id di detail_transaksi
+// await transaksi
+//   .forEach((element) => {
+//     let transaksiCustomer = element.transaksi_id;
+//     detail_transaksi.destroy({ where: transaksiCustomer });
+//   })
+//   .destroy({ where: param })
+//   .catch(error => {
+//     res.json({
+//       message: error.message,
+//     });
+//   });
+
+// Lebih Baik default yaitu jika ingin customer dihapus
+// Maka tabel transaksi yang memiliki hubungan dengan customer
+// dihapus terlebih dahulu
