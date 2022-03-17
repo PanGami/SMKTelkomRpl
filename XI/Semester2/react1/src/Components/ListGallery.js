@@ -6,12 +6,12 @@ class ListGallery extends Component {
   close = () => {
     $("#modal_buku").hide();
   }
-
+  random = Math.random() * 100000;
   Add = () => {
     // menampilkan komponen modal
     $("#modal_buku").show();
     this.setState({
-      isbn: Math.random(1, 10000000),
+      isbn: Math.random(1, 10000),
       judul: "",
       penulis: "",
       penerbit: "",
@@ -132,6 +132,7 @@ class ListGallery extends Component {
         <div className="row">          
           {this.state.buku.map((item, index) => (
             <Card
+              isbn={this.random}
               judul={item.judul}
               penulis={item.penulis}
               penerbit={item.penerbit}
@@ -154,6 +155,14 @@ class ListGallery extends Component {
               {/* modal body */}
               <div className="modal-body">
                 <form onSubmit={(ev) => this.Save(ev)}>
+                  ISBN
+                  <input
+                    type="text"
+                    className="form-control mb-2"
+                    value={this.random}     
+                    onChange={(ev) => this.setState({ judul: ev.target.value })}               
+                    disabled
+                  />
                   Judul Buku
                   <input
                     type="text"
