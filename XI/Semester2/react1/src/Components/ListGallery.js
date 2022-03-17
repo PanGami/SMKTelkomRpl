@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import $ from "jquery";
 import Card from "./Card.js";
 class ListGallery extends Component {
+
+  close = () => {
+    $("#modal_buku").hide();
+  }
+
   Add = () => {
     // menampilkan komponen modal
     $("#modal_buku").show();
@@ -123,8 +128,8 @@ class ListGallery extends Component {
   }
   render() {
     return (
-      <div className="container gallery">
-        <div className="row">
+      <div className="container gallery">        
+        <div className="row">          
           {this.state.buku.map((item, index) => (
             <Card
               judul={item.judul}
@@ -145,7 +150,7 @@ class ListGallery extends Component {
           <div className="modal-dialog">
             <div className="modal-content">
               {/* modal header */}
-              <div className="modal-header">Form Buku</div>
+              <div className="modal-header">Form Buku</div>              
               {/* modal body */}
               <div className="modal-body">
                 <form onSubmit={(ev) => this.Save(ev)}>
@@ -196,6 +201,7 @@ class ListGallery extends Component {
                   <button className="btn btn-info btn-block" type="submit">
                     Simpan
                   </button>
+                  <button className="btn btn-danger" onClick={() => this.close()}>Close</button>
                 </form>
               </div>
             </div>
