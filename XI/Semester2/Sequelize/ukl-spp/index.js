@@ -7,10 +7,14 @@ const app = express();
 app.use(cors());
 
 //endpoint petugas
-const petugas = require('./routes/petugas');
-app.use("/petugas", petugas);
+// const petugas = require('./routes/petugas');
+// app.use("/petugas", petugas);
 
 //endpoint spp
+const spp = require('./routes/spp');
+app.use("/spp", spp);
+
+
 // const spp = require('./routes/spp');
 // app.use("/spp", spp)
 

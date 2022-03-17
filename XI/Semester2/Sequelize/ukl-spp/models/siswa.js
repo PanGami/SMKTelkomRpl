@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       })
       this.hasMany(models.pembayaran, {
         foreignKey: "id_spp",
-        as: "pembayaran"
+        as: "pembayaran_id"
       })
       this.belongsTo(models.spp, {
         foreignKey: "id_spp",
@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
       nis: DataTypes.STRING,
       nama: DataTypes.STRING,
       id_kelas: DataTypes.INTEGER,
-      alamat: DataTypes.text,
+      alamat: DataTypes.TEXT,
       no_telp: DataTypes.STRING,
       id_spp: DataTypes.INTEGER
     },
