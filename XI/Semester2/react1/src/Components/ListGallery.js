@@ -4,7 +4,7 @@ import Card from "./Card.js";
 class ListGallery extends Component {
   Add = () => {
     // menampilkan komponen modal
-    $("#modal_buku").modal("show");
+    $("#modal_buku").show();
     this.setState({
       isbn: Math.random(1, 10000000),
       judul: "",
@@ -17,7 +17,7 @@ class ListGallery extends Component {
   };
   Edit = (item) => {
     // menampilkan komponen modal
-    $("#modal_buku").modal("show");
+    $("#modal_buku").show();
     this.setState({
       isbn: item.isbn,
       judul: item.judul,
@@ -56,7 +56,7 @@ class ListGallery extends Component {
     this.setState({ buku: tempBuku });
 
     // menutup komponen modal_buku
-    $("#modal_buku").modal("hide");
+    $("#modal_buku").hide();
   };
   Drop = (item) => {
     // beri konfirmasi untuk menghapus data
