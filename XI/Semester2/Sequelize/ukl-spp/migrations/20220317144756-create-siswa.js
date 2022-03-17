@@ -6,10 +6,6 @@ module.exports = {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.STRING(10),
-        references: {
-          model: "pembayaran",
-          key: "nisn",
-        },
       },
       nis: {
         type: Sequelize.STRING(8),

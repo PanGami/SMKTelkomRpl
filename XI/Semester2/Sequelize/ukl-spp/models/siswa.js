@@ -11,19 +11,15 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasMany(models.pembayaran, {
         foreignKey: "nisn",
-        as: "pembayaran",
       });
       this.hasMany(models.pembayaran, {
         foreignKey: "id_spp",
-        as: "pembayaran",
       });
       this.belongsTo(models.spp, {
         foreignKey: "id_spp",
-        as: "spp",
       });
       this.belongsTo(models.kelas, {
-        foreignKey: "id_spp",
-        as: "kelas",
+        foreignKey: "id_kelas",
       });
     }
   }
@@ -36,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       nis: DataTypes.STRING,
       nama: DataTypes.STRING,
       id_kelas: DataTypes.INTEGER,
-      alamat: DataTypes.text,
+      alamat: DataTypes.TEXT,
       no_telp: DataTypes.STRING,
       id_spp: DataTypes.INTEGER,
     },

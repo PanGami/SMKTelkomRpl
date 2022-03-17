@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasMany(models.siswa, {
         foreignKey: "id_kelas",
-        as: "siswa",
       });
     }
   }
