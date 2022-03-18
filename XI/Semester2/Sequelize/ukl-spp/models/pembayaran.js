@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.belongsTo(models.siswa, {
         foreignKey: "nisn",
+        as: "siswa pembayaran", //harus dikasih alias, mengapa?
       });
       this.belongsTo(models.petugas, {
         foreignKey: "id_petugas",
@@ -30,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       id_petugas: DataTypes.INTEGER,
       nisn: DataTypes.STRING,
-      tgl_bayar: DataTypes.date,
+      tgl_bayar: DataTypes.DATE,
       bulan_dibayar: DataTypes.STRING,
       tahun_dibayar: DataTypes.STRING,
       id_spp: DataTypes.INTEGER,
