@@ -6,7 +6,11 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-//endpoint admin
+//endpoint petugas
+const petugas = require('./routes/petugas');
+app.use("/petugas", petugas)
+
+//endpoint spp
 const spp = require('./routes/spp');
 app.use("/spp", spp)
 
