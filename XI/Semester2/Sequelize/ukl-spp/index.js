@@ -18,6 +18,10 @@ app.use("/spp", spp)
 const siswa = require('./routes/siswa');
 app.use("/siswa", siswa)
 
+//endpoint kelas
+const kelas = require('./routes/kelas');
+app.use("/kelas", kelas)
+
 //run server
 app.listen(8080, () => {
     console.log('server run on port 8080')
