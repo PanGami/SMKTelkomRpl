@@ -49,7 +49,7 @@ app.get("/:id_spp", (req, res) => {
     });
 });
  
-//endpoint untuk menyimpan data spp, METHOD: POST, function: create
+//endpoint untuk membuat data spp, METHOD: POST, function: create
 app.post("/", (req, res) => {
   let data = {
     tahun: req.body.tahun,

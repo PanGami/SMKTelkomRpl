@@ -33,7 +33,7 @@ app.get("/", (req, res) => {
     });
 });
 
-// Get data siswa berdasarkan nisn
+// Get data siswa berdasarkan nisn yang diberikan pada body
 app.get("/", (req, res) => {
   siswa
     .findOne({ where: { nisn: req.body.nisn } })
@@ -75,7 +75,7 @@ app.post("/", (req, res) => {
     });
 });
 
-//endpoint mengupdate data siswa, METHOD: PUT, function:update
+//endpoint mengupdate data siswa berdasarkan nisn (hanya dengan login dari petugas atau admin)
 app.put("/", auth, (req, res) => {
   let param = {
     nisn : req.body.nisn,
@@ -103,7 +103,7 @@ app.put("/", auth, (req, res) => {
     });
 });
 
-//endpoint menghapus data siswa, METHOD: DELETE, function: destroy
+//endpoint menghapus data siswa (hanya dapat dilakukan oleh petugas atau admin), METHOD: DELETE, function: destroy
 app.delete("/", auth, (req, res) => {
   let param = {
     nisn : req.body.nisn,
