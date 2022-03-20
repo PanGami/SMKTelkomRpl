@@ -16,22 +16,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //import model
 const model = require("../models/index");
 const siswa = model.siswa;
+const spp = model.spp;
+const kelas = model.kelas;
 
 //endpoint menampilkan semua data siswa, method: GET, function: findAll()
-app.get("/", (req, res) => {
-  siswa
-    .findAll()
-    .then((result) => {
-      res.json({
-        siswa: result,
-      });
-    })
-    .catch((error) => {
-      res.json({
-        message: error.message,
-      });
-    });
-});
+
+// app.get("/", (req, res) => {
+//   siswa
+//     .findAll()
+//     .then((result) => {
+//       kelas
+//       .findOne({where: {id_kelas: result[0].id_kelas}})
+//       .then((result2) => {
+//         spp
+//         .findOne({where: {id_spp: result[0].id_spp}})
+//         .then((result3) => {res.json({result : result, result2 : result2, result3 : result3})}) 
+//       })
+//     })
+//     .catch((error) => {
+//       res.json({
+//         message: error.message,
+//       });
+//     });
+// });
 
 // Get data siswa berdasarkan nisn yang diberikan pada body
 app.get("/", (req, res) => {

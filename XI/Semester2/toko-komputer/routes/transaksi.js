@@ -15,6 +15,22 @@ app.use(auth);
 
 // ====> Fix setelah menambah field price pada detail_transaksi
 // Ditambahi try catch
+// app.get("/", (req, res) => {
+//   transaksi
+//     .findAll()
+//     .then((result) => {
+//       res.json({
+//         transaksi: result,
+//       });
+//     })
+//     .catch((error) => {
+//       res.json({
+//         message: error.message,
+//       });
+//     });
+// });
+
+
 app.get("/", async (req, res) => {
   try {
     let result = await transaksi.findAll({
@@ -57,6 +73,7 @@ app.get("/:customer_id", async (req, res) => {
     });
   }
 });
+
 
 // Data masuk ke database namun muncul error forEach undefined
 // + { individualHooks: true }
