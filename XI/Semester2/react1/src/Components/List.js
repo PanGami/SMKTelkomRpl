@@ -98,7 +98,7 @@ class List extends Component {
                 <h6>NIS: {item.nis}</h6>
                 <h6>Alamat: {item.alamat}</h6>
 
-                <button
+                {/* <button
                   className="btn btn-sm btn-primary m-1"
                   onClick={() => this.Edit(item)}
                   data-toggle="modal"
@@ -111,19 +111,19 @@ class List extends Component {
                   onClick={() => this.Drop(index)}
                 >
                   Hapus
-                </button>
+                </button> */}
               </li>
             );
           })}
         </ul>
-        <button
+        {/* <button
           className="btn btn-sm btn-success m-3"
           onClick={() => this.Add}
           data-toggle="modal"
           data-target="#modal_siswa"
         >
           Tambah Data
-        </button>
+        </button> */}
 
         {/* elemen form modal */}
         <div className="modal fade" id="modal_siswa">
