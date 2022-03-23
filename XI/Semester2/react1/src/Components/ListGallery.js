@@ -195,7 +195,7 @@ class ListGallery extends Component {
         <div className="row">
           {this.state.buku.map((item, index) => (
             <Card
-              isbn={this.random}
+              isbn={item.isbn}
               judul={item.judul}
               penulis={item.penulis}
               penerbit={item.penerbit}

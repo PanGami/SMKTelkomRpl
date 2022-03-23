@@ -12,6 +12,7 @@ class Card extends React.Component {
             {/* menampilkan deskripsi */}
             <div className="col-7">
               <h5 className="text-info">{this.props.judul}</h5>
+              <h6 className="text-dark">ISBN: {this.props.isbn}</h6>
               <h6 className="text-dark">Penulis: {this.props.penulis}</h6>
               <h6 className="text-dark">Penerbit: {this.props.penerbit}</h6>
               <h6 className="text-danger">Harga: Rp {this.props.harga}</h6>
