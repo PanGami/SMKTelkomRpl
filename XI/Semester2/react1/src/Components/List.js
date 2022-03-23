@@ -1,50 +1,48 @@
 import React, { Component } from "react";
 import $ from "jquery";
 class List extends Component {
-
-  constructor() {
-    super();
-	// var btn = document.getElementById("myBtn");
-	// var modal = document.getElementById("modal");
-	// btn.onclick = function() {
-	// 	modal.style.display = "block";
-	// }
-    this.state = {
-      siswa: [
-        { nis: "100", nama: "Musthofa", alamat: "Surabaya" },
-        { nis: "101", nama: "Nurul", alamat: "Malang" },
-        { nis: "102", nama: "Misbah", alamat: "Pasuruan" },
-      ],
-      nis: "",
-      nama: "",
-      alamat: "",
-      action: "",
-    };
-  }
   bind = (event) => {
     this.setState({ [event.target.name]: event.target.value });
+    /* fungsi ini digunakan untuk memasukkan data dari elemen input 
+      	  ke variable state. 
+      	  contoh ketika input nis diisi, maka secara otomatis variabel nis 
+      	  pada state bernilai sesuai dengan inputan 
+  	  */
   };
 
   SaveSiswa = (event) => {
     event.preventDefault();
+    // temp digunakan untuk menyimpan sementara
+    // data array siswa
     let temp = this.state.siswa;
 
     if (this.state.action === "insert") {
+      // temp akan ditambahkan dengan data siswa yang baru
+      // sesuai dengan data yang dimasukkan pada form
       temp.push({
         nis: this.state.nis,
         nama: this.state.nama,
         alamat: this.state.alamat,
       });
     } else if (this.state.action === "update") {
+      // mencari index data yang akan diubah
       let index = temp.findIndex((item) => item.nis === this.state.nis);
+      // mengubah data array sesuai dengan masukan pada form
       temp[index].nama = this.state.nama;
       temp[index].alamat = this.state.alamat;
     }
+
+    // array siswa diupdate dengan nilai data temp
     this.setState({ siswa: temp });
-    $("#modal").modal("hide");
+
+    // menutup modal
+    $("#modal_siswa").modal("hide");
   };
 
-  Add = () => {
+  Add = () => { 
+    // mengosongkan nilai nis, nama, dan alamat
+    // pada saat tombol add ditekan
+    $("#modal_siswa").show();
     this.setState({
       nis: "",
       nama: "",
@@ -63,10 +61,31 @@ class List extends Component {
   };
 
   Drop = (index) => {
+    // temp digunakan untuk menyimpan sementara
+    // data array siswa
     let temp = this.state.siswa;
+
+    // menghapus data pada index yang dihapus
     temp.splice(index, 1);
+
+    // array siswa diupdate dengan nilai data temp
     this.setState({ siswa: temp });
   };
+
+  constructor() {
+    super();
+    this.state = {
+      siswa: [
+        { nis: "100", nama: "Musthofa", alamat: "Surabaya" },
+        { nis: "101", nama: "Nurul", alamat: "Malang" },
+        { nis: "102", nama: "Misbah", alamat: "Pasuruan" },
+      ],
+      nis: "",
+      nama: "",
+      alamat: "",
+      action: "",
+    };
+  }
   render() {
     return (
       <div className="container">
@@ -83,7 +102,7 @@ class List extends Component {
                   className="btn btn-sm btn-primary m-1"
                   onClick={() => this.Edit(item)}
                   data-toggle="modal"
-                  data-target="#modal"
+                  data-target="#modal_siswa"
                 >
                   Edit
                 </button>
@@ -99,16 +118,15 @@ class List extends Component {
         </ul>
         <button
           className="btn btn-sm btn-success m-3"
-		      id="myBtn"
-          onClick={this.Add}
+          onClick={() => this.Add}
           data-toggle="modal"
-          data-target="#modal"
+          data-target="#modal_siswa"
         >
           Tambah Data
         </button>
 
         {/* elemen form modal */}
-        <div className="modal fade" id="modal">
+        <div className="modal fade" id="modal_siswa">
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header bg-success text-white">
