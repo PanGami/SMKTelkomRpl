@@ -1,11 +1,64 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import Card from "./Card.js";
+import { Link } from 'react-router-dom';
 class ListGallery extends Component {
+  addToCart = (selectedItem) => {
+    // membuat sebuah variabel untuk menampung cart sementara
+    let tempCart = [];
+    // cek eksistensi dari data cart pada localStorage
+    if (localStorage.getItem("cart") !== null) {
+      tempCart = JSON.parse(localStorage.getItem("cart"));
+      // JSON.parse() digunakan untuk mengonversi dari string -> array object
+    }
+    // cek data yang dipilih user ke keranjang belanja
+    let existItem = tempCart.find((item) => item.isbn === selectedItem.isbn);
+    if (existItem) {
+      // jika item yang dipilih ada pada keranjang belanja
+      window.alert("Anda telah memilih item ini");
+    } else {
+      // user diminta memasukkan jumlah item yang dibeli
+      let promptJumlah = window.prompt("Masukkan jumlah item yang beli", "");
+      if (promptJumlah !== null && promptJumlah !== "") {
+        // jika user memasukkan jumlah item yg dibeli
+        // menambahkan properti "jumlahBeli" pada item yang dipilih
+        selectedItem.jumlahBeli = promptJumlah;
+        // masukkan item yg dipilih ke dalam cart
+        tempCart.push(selectedItem);
+        // simpan array tempCart ke localStorage
+        localStorage.setItem("cart", JSON.stringify(tempCart));
+      }
+    }
+  };
 
+  setUser = () => {
+    // cek eksistensi dari session storage
+    if (localStorage.getItem("user") === null) {
+      // kondisi jika session storage "user" belum dibuat
+      let prompt = window.prompt("Masukkan Nama Anda", "");
+      if (prompt === null || prompt === "") {
+        // jika user tidak mengisikan namanya
+        this.setUser();
+      } else {
+        // jika user telah mengisikan namanya
+        // simpan nama user ke session storage
+        localStorage.setItem("user", prompt);
+        // simpan nama user ke state.user
+        this.setState({ user: prompt });
+      }
+    } else {
+      // kondisi saat session storage "user" telah dibuat
+      // akses nilai dari session storage "user"
+      let name = localStorage.getItem("user");
+      this.setState({ user: name });
+    }
+  };
+  componentDidMount() {
+    this.setUser();
+  }
   close = () => {
     $("#modal_buku").hide();
-  }
+  };
   random = Math.random() * 100000;
   Add = () => {
     // menampilkan komponen modal
@@ -107,14 +160,14 @@ class ListGallery extends Component {
             "https://drive.google.com/uc?id=1e-thvq7lkG1_gw0FqHzRoiAhfhdgpOUj",
         },
         {
-            isbn: "12345",
-            judul: "Bulan",
-            penulis: "Tere Liye",
-            penerbit: "CV Harapan Kita",
-            harga: 95000,
-            cover:
-              "https://drive.google.com/uc?id=1ui-jyKgu3DqFyo7VKJu-FFXkaNQN3aSg",
-          },
+          isbn: "12345",
+          judul: "Bulan",
+          penulis: "Tere Liye",
+          penerbit: "CV Harapan Kita",
+          harga: 95000,
+          cover:
+            "https://drive.google.com/uc?id=1ui-jyKgu3DqFyo7VKJu-FFXkaNQN3aSg",
+        },
       ],
       action: "",
       isbn: "",
@@ -128,8 +181,18 @@ class ListGallery extends Component {
   }
   render() {
     return (
-      <div className="container gallery">        
-        <div className="row">          
+      <div className="container gallery">
+        <h4 className="text-info my-2">Nama Pengguna: {this.state.user}</h4>
+        <input
+          type="text"
+          className="form-control my-2"
+          placeh
+          older="Pencarian"
+          value={this.state.keyword}
+          onChange={(ev) => this.setState({ keyword: ev.target.value })}
+          onKeyUp={(ev) => this.searching(ev)}
+        />
+        <div className="row">
           {this.state.buku.map((item, index) => (
             <Card
               isbn={this.random}
@@ -140,18 +203,23 @@ class ListGallery extends Component {
               cover={item.cover}
               onEdit={() => this.Edit(item)}
               onDrop={() => this.Drop(item)}
+              onCart={() => this.addToCart(item)}
             />
           ))}
         </div>
         <button className="btn btn-success" onClick={() => this.Add()}>
           Tambah Data
         </button>
+        |
+        <Link className="btn btn-info" to="/Cart">
+          Cart
+        </Link>
         {/* component modal sbg control manipulasi data */}
         <div className="modal" id="modal_buku">
           <div className="modal-dialog">
             <div className="modal-content">
               {/* modal header */}
-              <div className="modal-header">Form Buku</div>              
+              <div className="modal-header">Form Buku</div>
               {/* modal body */}
               <div className="modal-body">
                 <form onSubmit={(ev) => this.Save(ev)}>
@@ -159,8 +227,8 @@ class ListGallery extends Component {
                   <input
                     type="text"
                     className="form-control mb-2"
-                    value={this.random}     
-                    onChange={(ev) => this.setState({ judul: ev.target.value })}               
+                    value={this.random}
+                    onChange={(ev) => this.setState({ judul: ev.target.value })}
                     disabled
                   />
                   Judul Buku
@@ -210,7 +278,12 @@ class ListGallery extends Component {
                   <button className="btn btn-info btn-block" type="submit">
                     Simpan
                   </button>
-                  <button className="btn btn-danger" onClick={() => this.close()}>Close</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => this.close()}
+                  >
+                    Close
+                  </button>
                 </form>
               </div>
             </div>

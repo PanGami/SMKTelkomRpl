@@ -29,6 +29,13 @@ class Card extends React.Component {
               >
                 Hapus
               </button>
+              {/* button untuk menambah ke keranjang belanja */}
+              <button
+                className="btn btn-sm btn-success m-1"
+                onClick={this.props.onCart}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>
