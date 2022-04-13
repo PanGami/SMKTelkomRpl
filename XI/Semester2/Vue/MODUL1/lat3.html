@@ -9,15 +9,14 @@
   </head>
   <body>
     <div id="app">
-      <p>{{ greet('Pan') }}</p>
+        <input type="text" v-bind:value="pesan">
+        <p>{{ pesan }}</p>
     </div>
     <script>
       let app = new Vue({
         el: "#app",
-        methods: {
-          greet: function (name){
-              return 'Good Morning ' + name;
-          }
+        data: {
+          pesan: "Pan Belajar Vue data binding",
         },
       });
     </script>
