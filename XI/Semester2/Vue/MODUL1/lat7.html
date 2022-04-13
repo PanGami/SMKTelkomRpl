@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <title>Learn Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="pesan">Tampilkan Pesan</button>
+      <p>
+        Vue.js juga menyediakan shorthand untuk penggunaan v-on, sehingga ketika <b>ditulis lengkap</b> adalah v-on:click=”pesan”
+        <br>
+        dan ketika <b>dipersingkat</b> menjadi @click=”pesan”
+    </p>
+
+    </div>
+    <script>
+      let app = new Vue({
+        el: "#app",
+        methods: {
+          pesan: function () {
+            alert("Panca Belajar Vue");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

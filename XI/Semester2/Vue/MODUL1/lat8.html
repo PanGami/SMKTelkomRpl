@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <title>Learn Vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>Masukkan Nama guru</h3>
+      <form v-on:submit.prevent>
+        <input
+          type="text"
+          name="namaSiswa"
+          id="namaSiswa"
+          @keyup.enter="simpan"
+          v-model="guru"
+        />
+        <button type="button" @click="simpan">Simpan</button>
+      </form>
+      <br /><br />
+        <table border="1" style="border-collapse: collapse" v-if="dataGuru.length > 0">
+            <tr>
+                <thead>
+                    <th style="width: 30px">#</th>
+                    <th style="width: 200px">Nama Guru</th>
+                </thead>
+            </tr>
+            <tr v-for="(guru,index) in dataGuru" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ guru }}</td>
+            </tr>
+        </table>
+        <h4 v-else>No Data</h4>
+    </div>
+    <script>
+      let app = new Vue({
+        el: "#app",
+        methods: {
+          simpan: function () {
+            this.dataGuru.push(this.guru);
+            this.guru = "";
+          },
+        },
+        data: {
+          dataGuru: [
+            "Pan",
+            "Budi",
+            "Caca",
+            "Dede",
+            "Eka",
+            "Firman",
+            "Gede",
+            "Hadi",
+            "Ika",
+            "Joko",
+            "Kiki",
+            "Lala",
+            "Mala",
+            "Nana",
+            "Oki",
+            "Papa",
+            "Qora",
+            "Rara",
+            "Sara",
+            "Tora",
+            "Ura",
+            "Vera",
+            "Wira",
+            "Xira",
+            "Yara",
+            "Zara",
+            "Alfa",
+            "Bima",
+            "Cima",
+          ],
+          guru: "",
+        },
+      });
+    </script>
+  </body>
+</html>
