@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "laundry_ukl",
+    "database": "laundry",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
