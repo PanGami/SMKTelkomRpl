@@ -14,8 +14,7 @@ module.exports = {
           model: "transaksi",
           key: "id_transaksi"
         }
-      },
-      
+      },      
       id_paket: {
         type: Sequelize.INTEGER,
         references:{
