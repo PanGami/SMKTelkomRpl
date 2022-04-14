@@ -36,7 +36,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey : true,
       autoIncrement : true
     },
-    id_outlet: DataTypes.INTEGER,
     kode_invoice: DataTypes.STRING,
     id_member: DataTypes.INTEGER,
     tgl: DataTypes.DATE,

@@ -6,15 +6,15 @@ const member = require('./routers/member')
 const paket = require('./routers/paket')
 const users = require('./routers/users')
 const transaksi = require("./routers/transaksi")
+const outlet = require('./routers/outlet')
 const { login } = require('./routers/login')
 
-
+app.use('/api/outlet', outlet)
 app.use('/api/member', member)
 app.use('/api/paket', paket)
 app.use('/api/users',users)
 app.use('/api/transaksi', transaksi)
 app.use('/api/auth', login)
-
 
 app.listen(8000,() => {
     console.log('server run on port 8000');

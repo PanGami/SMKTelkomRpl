@@ -10,14 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.paket, {
-        foreignKey : "id_outlet", as: "paket_outlet"        
+      this.hasMany (models.paket, {
+        foreignKey : "id_outlet", as: "paket_outlet"
       })
-      this.hasMany(models.transaksi, {
-        foreignKey : "id_outlet", as: "transaksi_outlet"    
+      this.hasMany (models.transaksi, {
+        foreignKey : "id_outlet", as: "transaksi_outlet"
       })
-      this.hasMany(models.user, {
-        foreignKey : "id_outlet", as: "user_outlet"    
+      this.hasMany (models.users, {
+        foreignKey : "id_outlet", as: "user_outlet"
       })
     }
   }
@@ -33,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'outlet',
+    tableName: 'outlet'
   });
   return outlet;
 };

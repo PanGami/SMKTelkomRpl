@@ -15,6 +15,7 @@ app.get('/', async (request, response) => {
 
 app.post('/', (request, response) => {
     let newPaket  = {
+        nama_paket: request.body.nama_paket,
         jenis_paket : request.body.jenis_paket,
         harga : request.body.harga
     }
@@ -35,6 +36,7 @@ app.post('/', (request, response) => {
 
 app.put('/:id_paket', (request, response) => {
     let data = {
+        nama_paket: request.body.nama_paket,
         jenis_paket : request.body.jenis_paket,
         harga : request.body.harga
     }

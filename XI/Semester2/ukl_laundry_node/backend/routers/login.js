@@ -37,12 +37,9 @@ const auth = (request, response, next) => {
     // kita dapatkan data authorizationnya
     let header = request.headers.authorization
     // header = Bearer audsubdyegyaegda(token acaknya)
-
-    // ambil data tokennya
     let token = header && header.split(" ")[1]
 
     if (token == null){
-        // jika token nya kosong
         return response.status(401).json({
             message : `Unauthorized`
         })
@@ -51,7 +48,6 @@ const auth = (request, response, next) => {
             algorithm: "HS256" //algoritma default dari jwt
         }
 
-        // digunakan utk verifikasi token yang diberikan
         jwt.verify(token, secretKey, jwtHeader, error => {
             if(error){
                 return response.status(401).json({

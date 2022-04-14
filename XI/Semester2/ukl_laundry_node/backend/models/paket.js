@@ -21,7 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    id_outlet: DataTypes.INTEGER,  
     jenis_paket: DataTypes.ENUM('kiloan','selimut','bed_cover','lain'),
     nama_paket: DataTypes.STRING,
     harga: DataTypes.DOUBLE

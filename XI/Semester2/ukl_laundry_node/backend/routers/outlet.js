@@ -8,29 +8,27 @@ app.use(express.json())
 
 
 const models = require("../models/index")
-const member = models.member
+const outlet = models.outlet
 const {auth} = require("./login")
 
 // Middleware Auth
-app.use(auth) 
+// app.use(auth) 
 
-// get all member
+// get all outlet
 app.get('/', async (request, response) => {
-    let dataMember = await member.findAll()
-
-    return response.json(dataMember)
+    let dataOutlet = await outlet.findAll()
+    return response.json(dataOutlet)
 })
 
-// add new member
+// add new outlet
 app.post('/', (request, response) => {
-    let newMember = {
+    let newOutlet = {
         nama: request.body.nama,
-        alamat: request.body.alamat,
-        jenis_kelamin: request.body.jenis_kelamin,
+        alamat: request.body.alamat,        
         telepon: request.body.telepon
     }
 
-    member.create(newMember) // create berisi objek
+    outlet.create(newOutlet) // create berisi objek
     .then(result => {
         response.json({
             message: 'Data berhasil ditambahkan'
@@ -44,21 +42,20 @@ app.post('/', (request, response) => {
 })
 
 // update data
-app.put("/:id_member", (request, response) => {
+app.put("/:id_outlet", (request, response) => {
     // tampung data yang akan diubah,object data
     let data = {
         nama: request.body.nama,
         alamat: request.body.alamat,
-        jenis_kelamin: request.body.jenis_kelamin,
         telepon: request.body.telepon
     }
 
     let parameter = {
-        id_member: request.params.id_member
+        id_outlet: request.params.id_outlet
     }
 
     // proses update
-    member.update(data, {where: parameter})
+    outlet.update(data, {where: parameter})
     .then(result => {
        return response.json({
             message: `Data berhasil diubah`,
@@ -73,13 +70,13 @@ app.put("/:id_member", (request, response) => {
 })
 
 // Delete data
-app.delete('/:id_member', (request, response) => {
+app.delete('/:id_outlet', (request, response) => {
     // tampung data yang akan dihapus
     let parameter = {
-        id_member : request.params.id_member
+        id_outlet : request.params.id_outlet
     }
    
-    member.destroy({where: parameter})
+    outlet.destroy({where: parameter})
     .then (result => {
         return response.json({
             message: 'data berhasil dihapus'
