@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan 2</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+</head>
+<body>
+
+    <div id="app">
+        <book-detail title="Panduan Praktis Menguasai Vue.js" author="Lutfi Gani" year="2018"></book-detail>
+        <book-detail title="Panduan Kilat Pemrograman PHP" author="Arista Prasetyo Adi" year="2020"></book-detail>
+        <book-detail title="Semua Bisa Menjadi Programmer Python" author="Yuniar Supardi" year="2020"></book-detail>
+    </div>
+    
+    <template id="bookDetail">
+        <div>
+            <h2>Book Detail</h2>
+            <h3> {{ title }} </h3>
+            <p>Author: {{ author }} </p>
+            <p>Year: {{ year }} </p>
+            <hr>
+        </div>
+    </template>
+
+    <script>
+
+        Vue.component('book-detail', {
+            template: "#bookDetail",
+            props: ['title', 'author', 'year']
+        })
+
+        var app = new Vue({
+            el: "#app"
+        })
+    </script>
+</body>
+</html>
