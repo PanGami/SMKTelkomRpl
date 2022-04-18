@@ -8,7 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      
       nama: {
         type: Sequelize.STRING
       },
@@ -26,7 +25,7 @@ module.exports = {
         }
       },
       role: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM('admin', 'kasir', 'owner')
       },
       createdAt: {
         allowNull: false,
